@@ -1,0 +1,138 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1117;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1rem;
+    }
+    .heading {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #4ade80, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+    .search {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    input[type="text"] {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 12px;
+      border: none;
+      width: 60%;
+      outline: none;
+      background-color: #161b22;
+      color: white;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      background-color: #238636;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #2ea043;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .main-weather {
+      margin-top: 1rem;
+    }
+
+    .location {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .temp {
+      font-size: 5rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
+    .temp-range {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .icon img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .day {
+      margin-top: 0.75rem;
+      font-size: 1.2rem;
+    }
+
+    .details {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      opacity: 0.95;
+      gap: 1rem;
+    }
+
+    .details div {
+      flex: 1;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .details div span {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .error {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #ff7b72;
+    }

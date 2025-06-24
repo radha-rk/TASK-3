@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radha's Weather App</title>
+  <link rel="stylesheet" href="task3.css">
+</head>
+<body>
+  <h1 class="heading">Weather App</h1>
+  <div class="search">
+    <input type="text" id="cityInput" placeholder="Enter city..." />
+    <button onclick="getWeather()">Search</button>
+  </div>
+
+  <div class="card">
+    <div id="weatherContainer" class="main-weather"></div>
+    <div id="errorMsg" class="error"></div>
+  </div>
+
+  <script>
+    function getCurrentDay() {
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const today = new Date();
+      return days[today.getDay()];
+    }
+
+    async function getWeather() {
+      const city = document.getElementById('cityInput').value.trim();
+      const apiKey = '229afc7b8a3546a286d170256252306';
+      const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
+      const weatherContainer = document.getElementById('weatherContainer');
+      const errorMsg = document.getElementById('errorMsg');
+      weatherContainer.innerHTML = '';
+      errorMsg.textContent = '';
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.location) {
+          const html = `
+            <div class="location">${data.location.name}, ${data.location.country}</div>
+            <div class="temp">${data.current.temp_c}°C</div>
+            <div class="temp-range">↑ ${data.current.temp_c + 2}°C ↓  ${data.current.temp_c - 2}°C</div>
+            <div class="icon">
+              <img src="${data.current.condition.icon}" alt="${data.current.condition.text}">
+            </div>
+            <div class="day">${getCurrentDay()}</div>
+            <div class="details">
+              <div><span>🌬</span>${data.current.wind_kph} KPH<br>${data.current.wind_dir}</div>
+              <div><span>💧</span>${data.current.humidity}%<br>Humidity</div>
+              <div><span>☔</span>${data.current.precip_mm}mm<br>Rain</div>
+            </div>
+          `;
+          weatherContainer.innerHTML = html;
+        } else {
+          errorMsg.textContent = 'City not found. Try again.';
+        }
+      } catch (err) {
+        errorMsg.textContent = 'Error fetching weather data.';
+      }
+    }
+  </script>
+</body>
+</html>

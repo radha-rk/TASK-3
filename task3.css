@@ -136,3 +136,36 @@
       font-size: 1rem;
       color: #ff7b72;
     }
+
+@media (max-width: 768px) {
+  .temp {
+    font-size: 3.5rem;
+  }
+
+  .location {
+    font-size: 1.25rem;
+  }
+
+  .details div {
+    flex: 1 1 100%;
+  }
+
+@media (max-width: 480px) {
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input[type="text"],
+  button {
+    width: 100%;
+  }
+
+  .temp {
+    font-size: 3rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
